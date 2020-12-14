@@ -14,8 +14,8 @@ import com.qualcomm.robotcore.util.Range;
  * Created by Jordan Paglione on 10/16/20.
  */
 //@Disabled
-@TeleOp(name="One controller", group="Iterative Opmode")
-public class TeleOpStandard20_21_OneController extends OpMode {
+@TeleOp(name="Shooting test", group="Iterative Opmode")
+public class ShooterTest extends OpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -55,7 +55,7 @@ public class TeleOpStandard20_21_OneController extends OpMode {
         BackLeft.setDirection(DcMotor.Direction.REVERSE);
         FrontRight.setDirection(DcMotor.Direction.FORWARD);
         BackRight.setDirection(DcMotor.Direction.FORWARD);
-        Shooter.setDirection(DcMotor.Direction.FORWARD);
+        Shooter.setDirection(DcMotor.Direction.REVERSE);
         //IntakeLeft.setDirection(DcMotor.Direction.REVERSE);
         //IntakeRight.setDirection(DcMotor.Direction.FORWARD);
         //Treadmill.setDirection(DcMotor.Direction.FORWARD);
@@ -94,6 +94,7 @@ public class TeleOpStandard20_21_OneController extends OpMode {
     public void loop() {
         double threshold = 0.2;
 
+        /*
         if (gamepad1.right_stick_x < -threshold || gamepad1.right_stick_x > threshold || gamepad1.left_stick_y < -threshold || gamepad1.left_stick_y > threshold || gamepad1.left_stick_x < -threshold || gamepad1.left_stick_x > threshold) {
             //Forward/backward and strafing with the left stick, turning with the right
 
@@ -124,8 +125,9 @@ public class TeleOpStandard20_21_OneController extends OpMode {
             BackLeft.setPower(0);
             BackRight.setPower(0);
         }
+         */
 
-        /*
+
         //Test shooter code
         if (gamepad1.a) {
             Shooter.setPower(1);
@@ -134,7 +136,6 @@ public class TeleOpStandard20_21_OneController extends OpMode {
         } else {
             Shooter.setPower(0);
         }
-         */
 
         /*
         //intake motors (2nd controller)
