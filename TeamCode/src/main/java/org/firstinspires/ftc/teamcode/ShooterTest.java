@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * Created by Jordan Paglione on 10/16/20.
+ * Created by Jordan Paglione on 12/1/20.
  */
 //@Disabled
 @TeleOp(name="Shooting test", group="Iterative Opmode")
@@ -92,41 +92,6 @@ public class ShooterTest extends OpMode {
      */
 
     public void loop() {
-        double threshold = 0.2;
-
-        /*
-        if (gamepad1.right_stick_x < -threshold || gamepad1.right_stick_x > threshold || gamepad1.left_stick_y < -threshold || gamepad1.left_stick_y > threshold || gamepad1.left_stick_x < -threshold || gamepad1.left_stick_x > threshold) {
-            //Forward/backward and strafing with the left stick, turning with the right
-
-            double drive = -gamepad1.left_stick_y;
-            double turn = gamepad1.right_stick_x;
-            double strafe = gamepad1.left_stick_x;
-            //make sure left and right power are outside threshold
-            double frontLeftPower = Range.clip(drive + turn + strafe, -1.0, 1.0) * 0.7;
-            double frontRightPower = Range.clip(drive - turn - strafe, -1.0, 1.0) * 0.7;
-            double backLeftPower = Range.clip(drive + turn - strafe, -1.0, 1.0);
-            double backRightPower = Range.clip(drive - turn + strafe, -1.0, 1.0);
-
-            if (Math.abs(frontLeftPower) > threshold || Math.abs(backLeftPower) > threshold || Math.abs(frontRightPower) > threshold || Math.abs(backRightPower) > threshold) {
-                FrontLeft.setPower(frontLeftPower);
-                BackLeft.setPower(backLeftPower);
-                FrontRight.setPower(frontRightPower);
-                BackRight.setPower(backRightPower);
-            } else {
-                FrontRight.setPower(0);
-                FrontLeft.setPower(0);
-                BackLeft.setPower(0);
-                BackRight.setPower(0);
-            }
-
-        } else {
-            FrontRight.setPower(0);
-            FrontLeft.setPower(0);
-            BackLeft.setPower(0);
-            BackRight.setPower(0);
-        }
-         */
-
 
         //Test shooter code
         if (gamepad1.a) {
@@ -136,81 +101,6 @@ public class ShooterTest extends OpMode {
         } else {
             Shooter.setPower(0);
         }
-
-        /*
-        //intake motors (2nd controller)
-        double intakePower = .9;
-        double treadmillPower = 1.0;
-        int right = 0;
-        int left = 0;
-
-        //Move right intake motor with the right bumper and trigger, and left with left bumper and trigger
-        if (gamepad1.right_trigger > .2) {
-            IntakeRight.setPower(intakePower);
-            right = 1;
-        } else if (gamepad1.right_bumper) {
-            IntakeRight.setPower(-intakePower);
-            right = -1;
-        }
-
-        if (gamepad1.left_trigger > .2) {
-            IntakeLeft.setPower(intakePower);
-            left = 1;
-        } else if (gamepad1.left_bumper) {
-            IntakeLeft.setPower(-intakePower);
-            left = -1;
-        }
-
-        //If left and right are powered in the same direction then the treadmill goes that direction
-        if (right == 1 && left == 1) {
-            Treadmill.setPower(treadmillPower);
-        } else if (right == -1 && left == -1) {
-            Treadmill.setPower(-treadmillPower);
-        } else {
-            Treadmill.setPower(0);
-        }
-
-        if (right == 0) {
-            IntakeRight.setPower(0);
-        }
-        if (left == 0) {
-            IntakeLeft.setPower(0);
-        }
-
-        //The treadmill can also be controlled separately with the left stick on controller 2
-        if(Math.abs(gamepad2.left_stick_y) > 0.2) {
-            if(gamepad2.left_stick_y > 0) {
-                Treadmill.setPower(treadmillPower);
-            } else {
-                Treadmill.setPower(-treadmillPower);
-            }
-        } else if(right != 1 && left != 1) {
-            Treadmill.setPower(0);
-        }
-         */
-
-
-        //Servo Stuff
-
-        /*
-        if (gamepad1.a) {
-            //Servo down
-            FoundationServo.setPosition(0);
-        } else if (gamepad1.b) {
-            //Servo up
-            FoundationServo.setPosition(0.5);
-        }
-
-        //Capstone servo
-        if (gamepad1.x) {
-            //Servo down
-            CapstoneServo.setPosition(1);
-        } else if (gamepad1.y) {
-            //Servo up
-            CapstoneServo.setPosition(0.2);
-        }
-        telemetry.addData("Servo position", CapstoneServo.getPosition());
-         */
 
 
         // Show the elapsed game time
